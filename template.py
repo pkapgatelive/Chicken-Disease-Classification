@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 import logging
 
-logging.basicConfig(level= logging.info, format= '[%(asctime)s]: %(message)s:')
+logging.basicConfig(level= logging.INFO, format= '[%(asctime)s]: %(message)s:')
 
 project_name = "cnnClassifier" # giving this name to make the template as genric 
 
@@ -38,4 +38,11 @@ for filepath in list_of_files:
         logging.info(f"Creating the directory:{filedir} for the file: {filename}")
 
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
-        
+        with open(filepath, "w") as f:
+            pass
+            logging.info(f"Creating the emplty file: {filepath}")
+
+    else:
+        logging.info(f"{filename} is already exits")
+
+
